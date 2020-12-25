@@ -24,7 +24,7 @@ require('./middleware/passport')(passport)
 
 app.use(require('morgan')('dev'))
 app.use(require('cors')())
-
+app.use('/upload', express.static('upload'))
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())

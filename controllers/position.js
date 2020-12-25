@@ -47,10 +47,11 @@ module.exports.update = async function(req, res) {
     errorHandler(res, e)
   }
 }
-// module.exports.getAll = function(req, res) {
-//   try {
-  
-//   } catch (e) {
-//     errorHandler(res, e)
-//   }
-// }
+module.exports.getAll = async function(req, res) {
+  try {
+    const positions = await Position.find({user: req.user.id})
+    res.status(200).json(positions)
+  } catch {
+    errorHandler(res, e)
+  }
+}
